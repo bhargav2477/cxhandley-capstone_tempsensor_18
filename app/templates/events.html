@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <title> </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
+  <body>
+
+    <article class="cf vh-100">
+      <div class="fl h-100 w-100 w-50-ns bg-near-white tc">
+
+        <h1 class="f4 bold center mw5">Events</h1>
+        <ul class="list pl0 ml0 center mw6 ba b--light-silver br3">
+          {% for d in data %}
+            <li class="ph3 pv2 bb b--light-silver">{{ d.type }} - {{ d.date }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="fl h-100 w-100 w-50-ns bg-light-gray tc">
+        <h2>Control</h2>
+        <form action="{{ url_for('event_create') }}" method="post">
+          <button class="f6 pointer link dim br3 ph3 pv2 mb2 dib white bg-dark-green" name="type" value="LED ON">Turn LED On</button>
+        </form>
+        <form action="{{ url_for('event_create') }}" method="post">
+          <button class="f6 pointer link dim br3 ph3 pv2 mb2 dib white bg-mid-gray" name="type" value="LED OFF">Turn LED Off</button>
+        </form>
+      </div>
+    </article>
+
+  </body>
+</html>
